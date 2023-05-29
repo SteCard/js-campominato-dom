@@ -8,13 +8,13 @@ function generateRandomNumber(min, max){
 //FUNZIONE PER RIEMPIRE ARRAY BOMBE
 function fillArrayBombs(array_bombs, max){
 
-    //VARIABILE DI CONTROLLO
+    //VARIABILI DI CONTROLLO
     let check = false;
     let random_number;
 
     // se la var è false
     while(check === false){
-        // genero numero casuale
+        // genero numero casuale 
         random_number = generateRandomNumber(1, max);
         
         // controllo se l'array delle bombe non include il numero
@@ -58,11 +58,11 @@ function createNewGame(){
     console.log(arrayBombs);
 
     //INVOCO FUNZIONE PER CREARE SINGOLE CELLE
-    createCells(cellsNumber);
+    createCells(cellsNumber, arrayBombs);
 }
 
 // FUNZIONE PER CREARE CELLE
-function createCells(cells){
+function createCells(cells, arrayBombs){
 
     //GENERO LE CASELLE DA SCRIVERE NELLA GRIGLIA
     for (let i = 0; i < cells; i++){
@@ -79,6 +79,13 @@ function createCells(cells){
 
         square.addEventListener('click',function(){
             this.classList.add('clicked');
+
+            if(!arrayBombs.includes(parseInt(this.innerText))){
+                this.classList.add('clicked');
+            }
+            else{
+                this.classList.add('bomb-finded')
+            }
             
         })
 
