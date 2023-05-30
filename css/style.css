@@ -17,26 +17,25 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0 5rem;
 }
 
 .container{
+    max-width: 1140px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px auto;
 }
 
 #grid{
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    width: 650px;
-    height: 650px;
+    width: 500px;
+    height: 500px;
 }
 
 .square{
-    width: calc(650px / 10);
-    height: calc(650px / 10);
     border: 1px solid #fff;
     display: flex;
     justify-content: center;
@@ -55,4 +54,19 @@ header{
     font-size: 15px;
     font-weight: bold;
     background-color: rgb(120, 208, 165);
+}
+
+.square.clicked{
+    background-color: lightskyblue;
+}
+
+.square.bomb-finded{
+    background-color: rgb(181, 27, 27);
+}
+
+#message{
+    text-align: center;
+    color: greenyellow;
+    font-size: 30px;
+    margin: 15px auto;
 }

@@ -29,6 +29,7 @@ function fillArrayBombs(array_bombs, max){
 // FUNZIONE PER CREARE GRIGLIA
 function createNewGame(){
     const grid = document.getElementById('grid');
+    const div_message = document.getElementById('message');
     const arrayBombs = [];
 
     // LIVELLO DIFFICOLTA'
@@ -36,6 +37,7 @@ function createNewGame(){
 
     // SVUOTARE GRIGLIA
     grid.innerHTML = '';
+    div_message.innerText = '';
     
     let cellsNumber;
     switch(difficulty){
@@ -64,6 +66,9 @@ function createNewGame(){
 // FUNZIONE PER CREARE CELLE
 function createCells(cells, arrayBombs){
 
+    //RISULTATO: CELLE CLICCATE SENZA BOMBE
+    let clickForWin = 0;
+
     //GENERO LE CASELLE DA SCRIVERE NELLA GRIGLIA
     for (let i = 0; i < cells; i++){
 
@@ -82,11 +87,13 @@ function createCells(cells, arrayBombs){
 
             if(!arrayBombs.includes(parseInt(this.innerText))){
                 this.classList.add('clicked');
+                clickForWin++;
             }
             else{
-                this.classList.add('bomb-finded')
+                this.classList.add('bomb-finded');  
+                
+                document.getElementById('message').innerText = `Punteggio: ${clickForWin}`
             }
-            
         })
 
         grid.append(square);

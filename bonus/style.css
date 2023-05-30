@@ -28,6 +28,7 @@ header{
 }
 
 #grid{
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     width: 500px;
@@ -70,4 +71,11 @@ header{
 
 .square.bomb-finded{
     background-color: rgb(181, 27, 27);
+}
+
+#message{
+    text-align: center;
+    color: greenyellow;
+    font-size: 30px;
+    margin: 15px auto;
 }
